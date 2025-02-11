@@ -1,0 +1,18 @@
+class Solution {
+    public int climbStairs(int n) {
+        if(n <= 2)
+            return n;
+        
+        int step1 = 1;
+        int step2 = 2;
+        int current = 0;
+        for(int i=3; i<=n; i++){
+            current = step1 + step2;  //Example:  i=3, s1=1, s2=2, c = s1+s2 = 3
+            step1 = step2; //Example:  s2=2 s1=1 s1=s2=2
+            step2 = current; //Example:  s2=2 s2=c s2=3
+        }
+        return current;
+    }
+}
+
+// Example: i=4 c = 5 = 2+3 s1=s2=3 s2=c=5
