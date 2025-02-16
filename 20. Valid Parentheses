@@ -1,0 +1,37 @@
+import java.util.*;
+
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> t = new Stack<>();
+
+        for(int i=0; i<s.length(); i++){
+            char ch = s.charAt(i);
+
+            if(ch == '(' || ch == '{' || ch == '[')
+                t.push(ch);
+            else{
+                if(t.empty()) 
+                    return false;
+
+                char top = t.peek();
+        
+                if((top == '(' && ch == ')') || 
+                   (top == '{' && ch == '}') || 
+                   (top == '[' && ch == ']'))
+                t.pop();
+                else
+                    return false;
+            }
+        }
+        return t.empty();
+    }
+   
+
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+
+        Solution sol = new Solution();
+        System.out.println(sol.isValid(s));
+    }
+}
