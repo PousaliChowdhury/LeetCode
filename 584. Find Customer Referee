@@ -1,0 +1,3 @@
+Select name from Customer C where referee_id <> '2' and referee_id is null;
+or
+Select name from Customer C WHERE COALESCE(referee_id, 0) <> 2;
