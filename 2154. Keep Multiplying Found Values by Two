@@ -1,0 +1,32 @@
+class Solution {
+    public int findFinalValue(int[] nums, int original) {
+        boolean found = true;
+        while(found){
+            found = false;
+            for(int i=0; i<nums.length; i++){
+                if(nums[i] == original){
+                    original *= 2;
+                    found = true;
+                    break;
+                } 
+            } 
+        }
+        
+        return original;
+    }
+    public static void main(String args[]){
+        Scanner s = new Scanner(System.in);
+        String line = s.nextLine();
+        String parts[] = line.split(",");
+
+        int nums[] = new int[parts.length];
+        for(int i=0; i<parts.length; i++){
+            nums[i] = Integer.parseInt(parts[i]);
+        }
+        int original = s.nextInt();
+
+        Solution obj = new Solution();
+        int result = obj.findFinalValue(nums,original);
+        System.out.println(result);
+    }
+}
