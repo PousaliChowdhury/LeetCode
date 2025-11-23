@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int i = 0;
+        int j = 0;
+
+        while(i < s.length() && j < t.length()){
+            if(s.charAt(i) == t.charAt(j)) i++;
+            j++;
+        }
+        return i==s.length();
+    }
+    public void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String t = sc.nextLine();
+        
+        Solution obj = new Solution();
+
+        System.out.println(obj.isSubsequence(s,t));
+    }
+}
