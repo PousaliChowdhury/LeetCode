@@ -1,0 +1,15 @@
+class Solution {
+    public String reverseWords(String s) {
+        String trimS = s.trim(); //* trim()-> cut down leading.trailing spaces
+        String reverseS[] = trimS.split("\\s+"); //* \\s+ -> cut down extra mid spaces
+        List<String> r = Arrays.asList(reverseS);
+        Collections.reverse(r);
+        return String.join(" ", r);
+    }
+    public void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        System.out.println(reverseWords(s));
+    }
+}
