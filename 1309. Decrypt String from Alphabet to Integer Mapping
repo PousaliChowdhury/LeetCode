@@ -1,0 +1,28 @@
+class Solution {
+    public static String freqAlphabets(String s) {
+        StringBuilder result = new StringBuilder();
+        int i=0;
+        while( i<s.length()){
+            if(i+2 < s.length() && s.charAt(i+2) == '#'){
+                int n = Integer.parseInt(s.substring(i, i+2));
+                char letter = (char) ('a' + n - 1);
+                result.append(letter);
+                i += 3;
+            }else{
+                int n = s.charAt(i) - '0';
+                char letter = (char) ('a' + n - 1);
+                result.append(letter);
+                i++;
+            }
+        }
+        return result.toString();
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.nextLine();
+
+        String result = freqAlphabets(s);
+        System.out.println(result);
+    }
+}
