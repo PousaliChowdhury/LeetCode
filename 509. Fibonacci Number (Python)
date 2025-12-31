@@ -9,4 +9,20 @@ class Solution(object):
             dp[n] = fibonacci(n-1)+fibonacci(n-2)
             return dp[n]
         return fibonacci(n)
+
+
+[OR]
+
+class Solution(object):
+    def fib(self, n):
+        previous = 0
+        prev = 1
+        curr = 0
+        if n <= 1:
+            return n
+        for i in range(1,n):
+            curr = previous + prev
+            previous = prev
+            prev = curr
+        return curr
         
