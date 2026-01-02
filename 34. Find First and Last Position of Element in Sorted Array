@@ -1,0 +1,19 @@
+class Solution(object):
+    def searchRange(self, nums, target):
+        first = 0
+        last = 0
+        n = len(nums)
+        if target not in nums:
+            return [-1, -1]
+            
+        for i in range(n):
+            if nums[i] == target:
+                last = i
+
+        for j in range(n-1, -1, -1):
+            if nums[j] == target:
+                first = j
+
+        return [first, last]
+        
+        
