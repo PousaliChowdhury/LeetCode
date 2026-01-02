@@ -1,0 +1,10 @@
+class Solution(object):
+    def myPow(self, x, n):
+        return x**n
+        
+# This works because Python internally uses fast exponentiation, which is equivalent to
+# exponentiation by squaring and runs in logarithmic time.
+
+# x^n =
+    # (x^2)^(n/2)              if n is even
+    # x * (x^2)^((n-1)/2)      if n is odd
