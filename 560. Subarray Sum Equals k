@@ -1,0 +1,11 @@
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        count = 0
+        total_sum = 0
+        freq = {0:1}  # Before starting, I have seen a prefix sum of 0 exactly once.
+        for i in nums:
+            total_sum += i
+            if total_sum - k in freq:
+                count += freq[total_sum-k]
+            freq[total_sum] = freq.get(total_sum, 0) + 1
+        return count
