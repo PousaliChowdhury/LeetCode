@@ -2,7 +2,7 @@ class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         count = 0
         total_sum = 0
-        freq = {0:1}  # Before starting, I have seen a prefix sum of 0 exactly once.
+        freq = {0:1}  # Before starting, I have seen a prefix sum of 0 exactly once. Why is this needed? -> Because a subarray starting from index 0 can itself have sum k.
         for i in nums:
             total_sum += i
             if total_sum - k in freq:
