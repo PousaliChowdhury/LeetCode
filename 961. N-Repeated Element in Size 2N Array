@@ -1,0 +1,7 @@
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        freq = set()
+        for x in nums:
+            if x in freq:
+                return x
+            freq.add(x)
