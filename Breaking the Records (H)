@@ -1,0 +1,31 @@
+import math
+import os
+import random
+import re
+import sys
+
+def breakingRecords(scores):
+    n = len(scores)
+    Cmax = 0
+    Cmin = 0
+    Current_max = scores[0]
+    Current_min = scores[0]
+
+    for i in range(0,n):
+        if scores[i] > Current_max:
+            Current_max = scores[i]
+            Cmax += 1
+        elif scores[i] < Current_min:
+            Current_min = scores[i]
+            Cmin += 1
+    return Cmax, Cmin
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input().strip())
+    scores = list(map(int, input().rstrip().split()))
+    result = breakingRecords(scores)
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+    fptr.close()
