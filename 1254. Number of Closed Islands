@@ -1,0 +1,35 @@
+class Solution:
+    def closedIsland(self, grid: List[List[int]]) -> int:
+        visited = set()
+        closed_island = 0
+        m = len(grid)
+        n = len(grid[0])
+
+        if not grid:
+            return
+
+        def dfs(r,c):
+            if r<0 or r>=m or c<0 or c>=n:
+                return False
+            if grid[r][c] == 1:
+                return True
+            if (r,c) in visited:
+                return True
+            if r==0 or r==m-1 or c==0 or c==n-1:
+                return False
+            visited.add((r,c))
+            
+            right = dfs(r, c+1)
+            left = dfs(r, c-1)
+            down = dfs(r+1, c)
+            up = dfs(r-1, c)
+
+            return up and down and right and left
+
+        for r in range(m):
+            for c in range(n):
+                if grid[r][c] == 0 and (r,c) not in visited:
+                    if dfs(r,c):
+                        closed_island += 1
+                    
+        return closed_island
