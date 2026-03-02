@@ -1,0 +1,24 @@
+def generate_permutations(n1, n2, n3):
+    result = []
+    
+    def backtrack(path, a, b, c):
+        if a == 0 and b == 0 and c == 0:
+            result.append(path)
+            return
+        
+        if a > 0:
+            backtrack(path + 'a', a-1, b, c)
+        if b > 0:
+            backtrack(path + 'b', a, b-1, c)
+        if c > 0:
+            backtrack(path + 'c', a, b, c-1)
+    
+    backtrack("", n1, n2, n3)
+    return result
+
+if __name__ == "__main__":
+    n1 = int(input().strip())
+    n2 = int(input().strip())
+    n3 = int(input().strip())
+    
+    print(generate_permutations(n1,n2,n3))
