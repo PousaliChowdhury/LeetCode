@@ -1,0 +1,16 @@
+def max_a_in_box(s, L):
+    n = len(s)
+    max_count = 0
+    
+    for i in range(0, n, L):
+        substring = s[i:i+L]
+        max_count = max(max_count, substring.count('a'))
+    
+    return max_count
+    
+    
+if __name__ == "__main__":
+    s = input().strip()
+    L = int(input().strip())
+    
+    print(max_a_in_box(s, L))
