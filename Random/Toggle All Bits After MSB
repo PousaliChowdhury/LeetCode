@@ -1,0 +1,8 @@
+def toggle_bits(n):
+    bit_length = n.bit_length()
+    mask = (1 << bit_length) - 1
+    return n ^ mask
+
+if __name__ == "__main__":
+    n = int(input().strip())
+    print(toggle_bits(n))
